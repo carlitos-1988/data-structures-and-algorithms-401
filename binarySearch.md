@@ -15,3 +15,8 @@ As for time complexity I am not sure I am still wrapping my head around that.
 ## Solution
 
 Whiteboard Only
+
+- [ X] Top-level README “Table of Contents” is updated
+- [x] README for this challenge is complete - [X] Summary, Description, Approach & Efficiency, Solution - [X] Picture of whiteboard - [ ] Link to code
+- [x] Feature tasks for this challenge are completed
+- [ ] Unit tests written and passing - [ ] “Happy Path” - Expected outcome - [ ] Expected failure - [ ] Edge Case (if applicable/obvious)
