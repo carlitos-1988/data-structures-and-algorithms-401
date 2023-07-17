@@ -15,10 +15,18 @@ public class App {
         myLinkedList.insert(1);
         myLinkedList.insert(2);
         myLinkedList.insert(3);
+        myLinkedList.insert(5);
+        myLinkedList.insert(8);
 
         StringBuilder myResult = new StringBuilder();
         myResult = myLinkedList.toStringA();
         System.out.println(myResult.toString());
+
+        myLinkedList.insertAfter(10,11);
+        StringBuilder myOtherResult = new StringBuilder();
+        myOtherResult = myLinkedList.toStringA();
+        System.out.println(myOtherResult.toString());
+
 
 
     }
