@@ -50,9 +50,9 @@ public class LinkedList {
         Node curr = this.head;
         char myCharTracker = 97;
         while (curr != null){
-            toStringLinkedList.append(" { ");
+            toStringLinkedList.append("{ ");
             toStringLinkedList.append(myCharTracker);
-            toStringLinkedList.append(" } -> ");
+            toStringLinkedList.append(" }->");
 
             myCharTracker ++;
             curr = curr.next;
