@@ -9,6 +9,10 @@ public class Node {
         this.value = value;
     }
 
+    Node(){
+
+    }
+
     public void setNext(Node next) {
         if(next.equals(null)){
             System.out.println("Empty Node passed In");

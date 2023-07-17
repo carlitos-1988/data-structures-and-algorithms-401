@@ -56,6 +56,50 @@ class AppTest {
         assertFalse(testLinkedList.includes(5));
     }
 
+    //Test with multiple to the end
+    @Test
+    void checkAddMultipletoEnd(){
+        LinkedList myLinkedList = new LinkedList();
+
+        myLinkedList.insert(1);
+        myLinkedList.insert(2);
+        myLinkedList.insert(3);
+        myLinkedList.insert(5);
+        myLinkedList.insert(8);
+
+        myLinkedList.insertAfter(10,11);
+        myLinkedList.insertAfter(11,12);
+        StringBuilder myOtherResult = new StringBuilder();
+        myOtherResult = myLinkedList.toStringA();
+
+        String resutl = "{ 1 }->{ 2 }->{ 3 }->{ 5 }->{ 8 }->{ 11 }->{ 12 }->";
+
+        assertTrue(resutl.equals(myOtherResult.toString()));
+
+
+    }
+
+    @Test
+    void addToMiddle(){
+        LinkedList myLinkedList = new LinkedList();
+
+        myLinkedList.insert(1);
+        myLinkedList.insert(2);
+        myLinkedList.insert(3);
+        myLinkedList.insert(5);
+        myLinkedList.insert(8);
+        myLinkedList.insert(9);
+
+        myLinkedList.insertAfter(3,100);
+        StringBuilder myOtherResult = new StringBuilder();
+        myOtherResult = myLinkedList.toStringA();
+
+
+        String myExpectedResult = "{ 1 }->{ 2 }->{ 3 }->{ 100 }->{ 5 }->{ 8 }->{ 9 }->";
+
+        assertTrue(myExpectedResult.equals(myOtherResult.toString()));
+    }
+
     //passed but getting random error
     @Test
     void checkStrings() {
