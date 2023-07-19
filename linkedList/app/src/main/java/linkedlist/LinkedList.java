@@ -4,7 +4,6 @@ public class LinkedList {
     Node head = null;
     Node tail = null;  // not strictly required
 
-    Node previous = null;
 
     public LinkedList(){
         this.head = null;
@@ -19,11 +18,18 @@ public class LinkedList {
         if(this.head == null){
             this.head = trackedNode;
         }else{
-            Node currentNode = head;
+            Node currentNode = this.head;
+            Node TempNode = null;
+
             while (currentNode.next != null){
+                TempNode = currentNode;
                 currentNode = currentNode.next;
+                currentNode.setPrevious(TempNode);
+
             }
             currentNode.setNext(trackedNode);
+            trackedNode.setPrevious(currentNode);
+            this.tail = trackedNode;
         }
 
 
@@ -82,6 +88,48 @@ public class LinkedList {
         curr.next = newNode;
     }
 
+    public int kthEnd(int k) throws IllegalArgumentException{
+
+        // check to see if tail node is there if not break out
+        if (this.tail == null){
+            throw new IllegalArgumentException("this list does not have a tail");
+        }
+
+        //create curr node for the tail
+        Node curr = this.tail;
+        //need int location counter
+        int locationCounter = 0;
+
+        // if it is there start array from tail and iterate backwards
+        while (curr != null){
+//             COMMENTED OUT COULD NOT PASS TEST
+//            if(locationCounter > k){
+//                throw new IllegalArgumentException("number larger than the size of linked list ");
+//            }
+            if (locationCounter == k){
+                //System.out.println("made it here");
+                return curr.value;
+
+            }
+
+            curr = curr.getPrevious();
+            locationCounter++;
+            //System.out.println("Counter " + locationCounter);
+
+
+
+        }
+        //when found return the int for that location
+        //when not found return exception
+//        throw  new IllegalArgumentException("Argument larger than size of linkedList ");
+
+        throw new IllegalArgumentException("number larger than the size of linked list ");
+
+    }
+
+    public void setTail(Node tail) {
+        this.tail = tail;
+    }
 
     public StringBuilder toStringA()
     {
@@ -99,4 +147,6 @@ public class LinkedList {
 
         return toStringLinkedList;
     }
+
+
 }
