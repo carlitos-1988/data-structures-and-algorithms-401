@@ -100,6 +100,8 @@ class AppTest {
         assertTrue(myExpectedResult.equals(myOtherResult.toString()));
     }
 
+
+
     //passed but getting random error
     @Test
     void checkStrings() {
@@ -111,6 +113,38 @@ class AppTest {
         String expectedResult = "{ a }->{ b }->{ c }->";
 
         assertTrue(expectedResult.equals(result.toString()));
+    }
+
+    @Test
+    void checkKth(){
+
+        LinkedList testLikedLIst = new LinkedList();
+        testLikedLIst.insert(1);
+        testLikedLIst.insert(3);
+        testLikedLIst.insert(8);
+        testLikedLIst.insert(2);
+
+        int myResult = testLikedLIst.kthEnd(2);
+
+        assertEquals(myResult, 3);
+
+    }
+
+    @Test
+    void checkKth2(){
+
+        LinkedList testLikedLIst = new LinkedList();
+        testLikedLIst.insert(1);
+        testLikedLIst.insert(3);
+        testLikedLIst.insert(8);
+        testLikedLIst.insert(2);
+
+        
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> testLikedLIst.kthEnd(6));
+        assertEquals("number larger than the size of linked list ",exception.getMessage());
+
+
+
     }
 
 }

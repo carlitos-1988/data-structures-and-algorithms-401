@@ -6,3 +6,5 @@
 2. Array Insert Shift
 3. Binary Search
 4. Linked List -> new Directory 
+5. Linked-List-kth
+
