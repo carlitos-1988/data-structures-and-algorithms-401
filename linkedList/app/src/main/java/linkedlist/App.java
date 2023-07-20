@@ -20,12 +20,31 @@ public class App {
 
         StringBuilder myResult = new StringBuilder();
         myResult = myLinkedList.toStringA();
-        System.out.println(myResult.toString());
+//        System.out.println(myResult.toString());
 
         myLinkedList.insertAfter(10,11);
         StringBuilder myOtherResult = new StringBuilder();
         myOtherResult = myLinkedList.toStringA();
-        System.out.println(myOtherResult.toString());
+//        System.out.println(myOtherResult.toString());
+
+//        myLinkedList.insert(55);
+//        myLinkedList.setTail(new Node(66));
+//        System.out.println(myLinkedList.toStringA());
+
+
+        LinkedList testForPrevious = new LinkedList();
+        testForPrevious.insert(11);
+        testForPrevious.insert(22);
+        testForPrevious.insert(33);
+        testForPrevious.insert(44);
+        testForPrevious.insert(55);
+        testForPrevious.insert(66);
+
+        StringBuilder printResults = new StringBuilder();
+        printResults = testForPrevious.toStringA();
+        System.out.println(printResults.toString());
+
+        System.out.println(testForPrevious.kthEnd(4));
 
 
 
