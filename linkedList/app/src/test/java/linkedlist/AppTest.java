@@ -142,9 +142,30 @@ class AppTest {
         
         Exception exception = assertThrows(IllegalArgumentException.class, () -> testLikedLIst.kthEnd(6));
         assertEquals("number larger than the size of linked list ",exception.getMessage());
+    }
 
+    @Test
+    void checkZipper(){
+        LinkedList list1 = new LinkedList();
+        LinkedList list2 = new LinkedList();
 
+        list1.insert(1);
+        list1.insert(3);
+        list1.insert(2);
 
+        list2.insert(5);
+        list2.insert(9);
+        list2.insert(4);
+
+        LinkedList zippedList = new LinkedList();
+        zippedList = zippedList.zipLists(list1,list2);
+
+        StringBuilder zipResults = new StringBuilder();
+        zipResults = zippedList.toStringA();
+
+        String expectedResult = "{ 1 }->{ 5 }->{ 3 }->{ 9 }->{ 2 }->{ 4 }->";
+
+        assertEquals(expectedResult,zipResults.toString());
     }
 
 }

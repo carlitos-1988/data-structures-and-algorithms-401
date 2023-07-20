@@ -46,6 +46,27 @@ public class App {
 
         System.out.println(testForPrevious.kthEnd(4));
 
+        System.out.println("------------------------------------------------------");
+
+        LinkedList list1 = new LinkedList();
+        LinkedList list2 = new LinkedList();
+
+        list1.insert(1);
+        list1.insert(3);
+        list1.insert(2);
+
+        list2.insert(5);
+        list2.insert(9);
+        list2.insert(4);
+
+        LinkedList zippedList = new LinkedList();
+        zippedList = zippedList.zipLists(list1,list2);
+
+        StringBuilder zipResults = new StringBuilder();
+        zipResults = zippedList.toStringA();
+        System.out.println(zipResults.toString());
+
+
 
 
     }
