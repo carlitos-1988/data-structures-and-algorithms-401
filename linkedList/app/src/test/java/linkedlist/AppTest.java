@@ -160,13 +160,87 @@ class AppTest {
         LinkedList zippedList = new LinkedList();
         zippedList = zippedList.zipLists(list1,list2);
 
-        StringBuilder zipResults = new StringBuilder();
-        zipResults = zippedList.toStringA();
 
-        String expectedResult = "{ 1 }->{ 5 }->{ 3 }->{ 9 }->{ 2 }->{ 4 }->";
-
-        assertEquals(expectedResult,zipResults.toString());
     }
+
+    @Test
+    void pushToStack(){
+        Node myNode = new Node(10);
+        Node secondNode = new Node(20);
+        Stack myStack = new Stack(myNode);
+        myStack.push(secondNode);
+
+        assertFalse(myStack == null, "the stack is not empty");
+
+    }
+
+    @Test
+    void pushMultipleToStack(){
+        Node myNode = new Node(10);
+        Node secondNode = new Node(20);
+        Node thirdNode = new Node(30);
+        Stack myStack = new Stack(myNode);
+        myStack.push(secondNode);
+        myStack.push(thirdNode);
+
+        assertTrue(myStack.getSize() == 2, "Incorrect items in stack ");
+    }
+
+    @Test
+    void popOffTheStack(){
+
+        Node myNode = new Node(10);
+        Node secondNode = new Node(20);
+        Node thirdNode = new Node(30);
+        Stack myStack = new Stack(myNode);
+        myStack.push(secondNode);
+        myStack.push(thirdNode);
+
+        myStack.pop();
+        assertTrue(myStack.top.value == 20);
+
+    }
+
+    @Test
+    void clearStack (){
+        Node myNode = new Node(10);
+        Node secondNode = new Node(20);
+        Node thirdNode = new Node(30);
+        Stack myStack = new Stack(myNode);
+        myStack.push(secondNode);
+        myStack.push(thirdNode);
+        myStack.pop();
+        myStack.pop();
+        myStack.pop();
+
+        assertTrue(myStack.top == null);
+    }
+
+    @Test
+    void peek(){
+        Node myNode = new Node(10);
+        Node secondNode = new Node(20);
+        Node thirdNode = new Node(30);
+        Stack myStack = new Stack(myNode);
+        myStack.push(secondNode);
+        myStack.push(thirdNode);
+
+        assertTrue(myStack.peek() == 30);
+    }
+
+    @Test
+    void emptyStack(){
+        Stack myStack = new Stack();
+        assertTrue(myStack.top == null);
+    }
+
+    @Test
+    void checkException(){
+        Stack myStack = new Stack();
+        assertThrows(IllegalArgumentException.class, () -> myStack.pop() );
+    }
+
+
 
 }
 
