@@ -127,6 +127,61 @@ public class LinkedList {
 
     }
 
+    public LinkedList zipLists(LinkedList listA, LinkedList listB){
+
+        //need to check if the head on any of the LinkedLists is null
+        if (listA.head == null || listB.head == null){
+            throw new IllegalArgumentException("unable to perform function");
+        }
+        //generate linkedList that will be returned and tracked variables
+        //generate 'curr' node equals to listA.head;
+        // use set next on curr to equal listB head node;
+
+        LinkedList zipperList = new LinkedList();
+        Node currentOne = listA.head;
+        Node currentTwo = listB.head;
+        Node currentZipNode = null;
+        Node tracker1;
+        Node tracker2;
+
+        // create while loop checking .next is not null on a and b check that curr is not null
+
+        while (currentOne!=null && currentTwo != null){
+            tracker1 = currentOne.next;
+            tracker2 = currentTwo.next;
+
+            //if statement to initialize the Node that will go in zipperList
+            if (currentZipNode == null){
+                currentZipNode = currentOne;
+                zipperList.head = currentZipNode;
+            } else{
+                //set used node's next to currentOne because it is null
+                currentZipNode.setNext(currentOne);
+                //now we set sued node to equal the next node
+                currentZipNode = currentZipNode.next;
+            }
+
+            currentZipNode.setNext(currentTwo);
+            currentZipNode = currentZipNode.next;
+
+            currentOne = tracker1;
+            currentTwo = tracker2;
+        }
+
+        if(currentOne != null){
+            currentZipNode.next = currentOne;
+        } else if(currentTwo != null){
+            currentZipNode = currentTwo;
+        }
+
+        return zipperList;
+
+
+
+
+
+    }
+
     public void setTail(Node tail) {
         this.tail = tail;
     }

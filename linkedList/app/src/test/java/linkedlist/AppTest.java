@@ -142,6 +142,24 @@ class AppTest {
         
         Exception exception = assertThrows(IllegalArgumentException.class, () -> testLikedLIst.kthEnd(6));
         assertEquals("number larger than the size of linked list ",exception.getMessage());
+    }
+
+    @Test
+    void checkZipper(){
+        LinkedList list1 = new LinkedList();
+        LinkedList list2 = new LinkedList();
+
+        list1.insert(1);
+        list1.insert(3);
+        list1.insert(2);
+
+        list2.insert(5);
+        list2.insert(9);
+        list2.insert(4);
+
+        LinkedList zippedList = new LinkedList();
+        zippedList = zippedList.zipLists(list1,list2);
+
 
     }
 
@@ -153,6 +171,7 @@ class AppTest {
         myStack.push(secondNode);
 
         assertFalse(myStack == null, "the stack is not empty");
+
     }
 
     @Test
