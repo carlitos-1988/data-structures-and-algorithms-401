@@ -7,3 +7,4 @@
 3. Binary Search
 4. Linked List -> new Directory
 5. Linked LIsts with insertions from Lab 06 completed
+6. Implementing Queue using two Stacks 
