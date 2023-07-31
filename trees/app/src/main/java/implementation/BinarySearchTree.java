@@ -45,4 +45,21 @@ public class BinarySearchTree extends BinaryTree {
 
     }
 
+    public int findLargest(){
+        int largestValue = findLargest(super.root);
+        return  largestValue;
+
+    }
+
+    public int findLargest(BinaryTreeNode current){
+        if(current == null){
+            return -1;
+        }
+
+        int leftLargest = findLargest(current.left);
+        int rightLargest = findLargest(current.right);
+
+        return Math.max(current.internalValue, Math.max(leftLargest, rightLargest));
+    }
+
 }

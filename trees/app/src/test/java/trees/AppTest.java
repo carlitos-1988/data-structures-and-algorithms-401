@@ -3,6 +3,7 @@
  */
 package trees;
 
+import implementation.BinarySearchTree;
 import implementation.BinaryTree;
 import implementation.BinaryTreeNode;
 import org.junit.jupiter.api.Assertions;
@@ -32,9 +33,12 @@ class AppTest {
     void testInsert(){
         BinaryTree binaryTree = new BinaryTree();
 
-       
-
-
+        BinaryTreeNode one = new BinaryTreeNode(1);
+        BinaryTreeNode two = new BinaryTreeNode(2);
+        BinaryTreeNode three = new BinaryTreeNode(3);
+        BinaryTreeNode four = new BinaryTreeNode(4);
+        BinaryTreeNode five = new BinaryTreeNode(5);
+        BinaryTreeNode six = new BinaryTreeNode(6);
 
 //        System.out.println(binaryTree.postOrder());
 //        System.out.println(binaryTree.preOrder());
@@ -42,7 +46,7 @@ class AppTest {
 
         String expected ="[6, 5, 4, 3, 2, 1]";
 
-        System.out.println(binaryTree.treeToString(binaryTree,3));
+
         Assertions.assertEquals(expected.toString(), binaryTree.postOrder().toString());
 
 
@@ -70,5 +74,27 @@ class AppTest {
         String expected ="[6, 5, 4, 3, 2, 1]";
 
         Assertions.assertEquals(expected.toString(), binaryTree.postOrder().toString());
+    }
+
+    @Test
+    void checkMaximum(){
+        BinarySearchTree binarySearchTree = new BinarySearchTree();
+        BinaryTreeNode one = new BinaryTreeNode(10);
+        BinaryTreeNode two = new BinaryTreeNode(90);
+        BinaryTreeNode three = new BinaryTreeNode(30);
+        BinaryTreeNode four = new BinaryTreeNode(50);
+        BinaryTreeNode five = new BinaryTreeNode(70);
+        BinaryTreeNode six = new BinaryTreeNode(92);
+
+        binarySearchTree.addBinaryTreeNode(one);
+        binarySearchTree.addBinaryTreeNode((two));
+        binarySearchTree.addBinaryTreeNode(three);
+        binarySearchTree.addBinaryTreeNode(four);
+        binarySearchTree.addBinaryTreeNode(five);
+        binarySearchTree.addBinaryTreeNode(six);
+
+        int maximum = 70;
+
+        System.out.println(binarySearchTree.findLargest());
     }
 }
