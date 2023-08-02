@@ -59,6 +59,7 @@ public class BinarySearchTree extends BinaryTree {
         int leftLargest = findLargest(current.left);
         int rightLargest = findLargest(current.right);
 
+        //does comparason to check the largest of the two values used Chat-GPT for this
         return Math.max(current.internalValue, Math.max(leftLargest, rightLargest));
     }
 
