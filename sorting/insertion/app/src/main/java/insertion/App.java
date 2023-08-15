@@ -10,5 +10,10 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
+        int[] myTestArray = {8,4,23,42,16,15};
+        InsertionSort myInsertion = new InsertionSort();
+
+        myInsertion.insertionSort(myTestArray);
+
     }
 }
