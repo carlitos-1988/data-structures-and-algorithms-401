@@ -7,8 +7,58 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
+    HashMap myNewHashMap = new HashMap<>(10);
+    Person person1 = new Person("Juan", "Patino", 30);
+    Person person2 = new Person("Maria", "Garcia", 25);
+    Person person3 = new Person("Carlos", "Lopez", 40);
+    Person person4 = new Person("Ana", "Martinez", 28);
+    Person person5 = new Person("Pedro", "Rodriguez", 35);
+    Person person6 = new Person("Sofia", "Hernandez", 22);
+    Person person7 = new Person("Luis", "Gonzalez", 29);
+    Person person8 = new Person("Laura", "Sanchez", 31);
+    Person person9 = new Person("Diego", "Ramirez", 27);
+    Person person10 = new Person("Isabella", "Perez", 33);
+
+
     @Test void appHasAGreeting() {
         App classUnderTest = new App();
         assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
+    }
+
+    @Test
+    void canCreateHashMap(){
+        HashMap myNewHashMap = new HashMap<>(10);
+        assertNotNull(myNewHashMap);
+    }
+
+    @Test
+    void insertToHashmap(){
+        setAllPersons();
+        System.out.println(myNewHashMap.contains(person1.getName()));
+        assertTrue(myNewHashMap.contains(person1.getName()));
+    }
+    @Test
+    void checkReturnType(){
+        setAllPersons();
+        assertEquals(myNewHashMap.get(person5.getName()),person5);
+    }
+    @Test
+    void checkKeys(){
+        setAllPersons();
+        String myExpectedReturn = "[Maria, Laura, Carlos, Ana, Luis, Isabella, Pedro, Juan, Sofia, Diego]";
+        assertEquals(myNewHashMap.keys().toString(),myExpectedReturn);
+    }
+
+    public void setAllPersons(){
+        myNewHashMap.set(person1.getName(),person1);
+        myNewHashMap.set(person2.getName(),person2);
+        myNewHashMap.set(person3.getName(),person3);
+        myNewHashMap.set(person4.getName(),person4);
+        myNewHashMap.set(person5.getName(),person5);
+        myNewHashMap.set(person6.getName(),person6);
+        myNewHashMap.set(person7.getName(),person7);
+        myNewHashMap.set(person8.getName(),person8);
+        myNewHashMap.set(person9.getName(),person9);
+        myNewHashMap.set(person10.getName(),person10);
     }
 }
