@@ -4,7 +4,14 @@
 package insertion;
 
 import org.junit.jupiter.api.Test;
+import tree.Tree;
+import tree.TreeNode;
+import tree.TreeValuesFinder;
+
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class AppTest {
     HashMap myNewHashMap = new HashMap<>(10);
@@ -49,6 +56,30 @@ class AppTest {
         assertEquals(myNewHashMap.keys().toString(),myExpectedReturn);
     }
 
+    @Test
+    void checkTreeInsertion(){
+        Tree<Integer> myTree1 = new Tree<>();
+        myTree1 = setTreeNodes(1,2,3);
+        Tree<Integer> myTree2 = new Tree<>();
+        myTree2 = setTreeNodes(3,4,5);
+
+        TreeValuesFinder treeValuesFinder = new TreeValuesFinder();
+        ArrayList<Integer> expectedResult = new ArrayList<>();
+        expectedResult.add(3);
+
+        assertEquals(expectedResult,treeValuesFinder.findCommonValues(myTree1,myTree2));
+    }
+
+    @Test
+    void checkTreeNullness(){
+        Tree<Integer> myTree1 = new Tree<>();
+        Tree<Integer> myTree2 = new Tree<>();
+        TreeValuesFinder treeValuesFinder = new TreeValuesFinder();
+
+        assertThrows(IllegalArgumentException.class , () -> {treeValuesFinder.findCommonValues(myTree1,myTree2);
+        });
+    }
+
     public void setAllPersons(){
         myNewHashMap.set(person1.getName(),person1);
         myNewHashMap.set(person2.getName(),person2);
@@ -60,5 +91,15 @@ class AppTest {
         myNewHashMap.set(person8.getName(),person8);
         myNewHashMap.set(person9.getName(),person9);
         myNewHashMap.set(person10.getName(),person10);
+    }
+
+    public Tree setTreeNodes(int x, int y, int z){
+        Tree<Integer> tree1 = new Tree<>();
+        tree1.root = new TreeNode<> (x);
+        tree1.root.left = new TreeNode<>(y);
+        tree1.root.right = new TreeNode<>(z);
+
+        return tree1;
+
     }
 }
