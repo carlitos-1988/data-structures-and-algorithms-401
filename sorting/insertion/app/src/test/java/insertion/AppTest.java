@@ -3,15 +3,17 @@
  */
 package insertion;
 
+import graph.Graph;
 import org.junit.jupiter.api.Test;
 import tree.Tree;
 import tree.TreeNode;
 import tree.TreeValuesFinder;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class AppTest {
     HashMap myNewHashMap = new HashMap<>(10);
@@ -79,6 +81,53 @@ class AppTest {
         assertThrows(IllegalArgumentException.class , () -> {treeValuesFinder.findCommonValues(myTree1,myTree2);
         });
     }
+
+    @Test
+    void startGraph(){
+        Graph<Integer> myLocalGraph = new Graph<>();
+
+
+        myLocalGraph.addEdge(10,20,false);
+        myLocalGraph.addEdge(20,30,false);
+        myLocalGraph.addEdge(30,40,false);
+        myLocalGraph.addEdge(40,50,false);
+        myLocalGraph.addEdge(50,10,true);
+        myLocalGraph.addEdge(60,70,false);
+        myLocalGraph.addEdge(50,60,false);
+
+
+        System.out.println(myLocalGraph.toString());
+        myLocalGraph.getEdgeCount(true);
+
+
+
+        assertTrue(myLocalGraph != null);
+    }
+
+    @Test
+    void checkBreadthFirst(){
+        Graph<Integer> myLocalGraph = new Graph<>();
+
+
+        myLocalGraph.addEdge(10,20,false);
+        myLocalGraph.addEdge(20,30,false);
+        myLocalGraph.addEdge(30,40,false);
+        myLocalGraph.addEdge(40,50,false);
+        myLocalGraph.addEdge(50,10,true);
+        myLocalGraph.addEdge(60,70,false);
+        myLocalGraph.addEdge(50,60,false);
+
+        List<Integer> checker = new ArrayList<>(Arrays.asList(50, 10, 60, 20, 70, 30, 40));
+
+        List myReturnCheck = new ArrayList<>();
+        myReturnCheck = myLocalGraph.breathFirst();
+
+        assertEquals(myReturnCheck,checker, "Test Case passed for array:[50, 10, 60, 20, 70, 30, 40]");
+
+
+    }
+
+
 
     public void setAllPersons(){
         myNewHashMap.set(person1.getName(),person1);
