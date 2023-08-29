@@ -1,14 +1,27 @@
 package tree;
 
+import java.util.LinkedList;
+
 public class TreeNode <T>{
     T value;
-    public TreeNode<T> left;
+    public  TreeNode<T> left;
     public TreeNode<T> right;
+
+    private LinkedList<TreeNode<T>> connections;
 
     public TreeNode(T value) {
         this.value = value;
         this.left = null;
         this.right = null;
+        this.connections = new LinkedList<>();
+    }
+
+    public LinkedList<TreeNode<T>> getConnections() {
+        return this.connections;
+    }
+
+    public void setConnections(LinkedList<TreeNode<T>> connections) {
+        this.connections = connections;
     }
 
     public T getValue() {
@@ -33,5 +46,18 @@ public class TreeNode <T>{
 
     public void setRight(TreeNode<T> right) {
         this.right = right;
+    }
+
+
+
+    @Override
+    public String toString() {
+        String leftValue = (left != null) ? left.getValue().toString() : "null";
+        String rightValue = (right != null) ? right.getValue().toString() : "null";
+        return "TreeNode{" +
+                "value=" + value +
+                ", left=" + this.left.value +
+                ", right=" + this.right.value +
+                '}';
     }
 }
